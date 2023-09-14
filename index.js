@@ -36,6 +36,13 @@ passport.use(UserPassport.createStrategy());
 passport.serializeUser(UserPassport.serializeUser());
 passport.deserializeUser(UserPassport.deserializeUser());
 
+app.get("/register",(req,res)=>{
+    res.sendFile(path.join(__dirname,"./public/registration.html"));
+});
+
+app.get("/login",(req,res)=>{
+    res.sendFile(path.join(__dirname,"./public/login.html"))
+});
 
 app.post("/registration",(req,res)=>{
     let userName = req.body.username;
