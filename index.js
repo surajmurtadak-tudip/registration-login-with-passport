@@ -21,7 +21,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const userSchema = new mongoose.Schema({
-    username : String,
+    username : {
+        type : String,
+        required : true,
+    },
     password : String
 });
 
