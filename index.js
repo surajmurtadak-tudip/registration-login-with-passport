@@ -70,7 +70,9 @@ app.post("/login",(req,res)=>{
         }
         else{
             passport.authenticate("local")(req,res,()=>{
-                res.send("login successfull");
+                UserPassport.findOne({username: user1.username}).then((data)=>{
+                    res.send(`login successfully : ${data}`);
+                });
             });
         }
     });
